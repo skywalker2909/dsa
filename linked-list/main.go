@@ -8,24 +8,25 @@ import "fmt"
 func main() {
 	ll := list{}
 
-	ll.insert(1)
-	ll.insert(2)
-	ll.insert(3)
-	ll.insert(4)
-	ll.insert(5)
+	for i := 1; i <= 5; i++ {
+		ll.insert(i)
+	}
 
 	ll.display()
 }
 
+// node represents an item in a linked list
 type node struct {
 	data int
 	next *node
 }
 
+// list rpresents the starting point of the linked list
 type list struct {
 	head *node
 }
 
+// insert creates a new node with the data and adds it to the linked list
 func (l *list) insert(data int) {
 	n := &node{data: data, next: nil}
 
@@ -42,6 +43,7 @@ func (l *list) insert(data int) {
 	h.next = n
 }
 
+// display iterates through the linked list and displays the value in each node
 func (l *list) display() {
 	h := l.head
 
